@@ -16,8 +16,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0d1b2e; --navy-2:#122034; --paper:#f7f4ee; --paper-2:#efe9dd;
-  --gold:#c9a962; --gold-d:#b08d4a; --ink:#1d2735; --ink-soft:#46536a; --line:#e2dbcc;
+  --navy:#0f1f18; --navy-2:#173027; --footer:#0a1510; --paper:#f6f4ec; --paper-2:#ebe8d8;
+  --gold:#c9a95c; --gold-d:#a98a44; --gold-h:#8f7437; --ink:#1b2620; --ink-soft:#4b5a52; --line:#dfdccb;
+  --navy-a55:rgba(15,31,24,.55); --navy-a72:rgba(23,48,39,.72); --navy-a88:rgba(15,31,24,.88);
+  --gold-a12:rgba(201,169,92,.12); --gold-a35:rgba(201,169,92,.35); --gold-a55:rgba(201,169,92,.55);
+  --glow:rgba(160,110,40,.45);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -29,9 +32,10 @@ a{text-decoration:none;color:inherit}
 .btn{display:inline-block;background:var(--gold-d);color:#fff;font-weight:600;font-size:14px;
   letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;border:0;cursor:pointer;
   transition:.2s;text-align:center}
-.btn:hover{background:#9a7a3d}
+.btn:hover{background:var(--gold-h)}
 .btn.navy{background:var(--navy);color:#f3ead9}
-.btn.navy:hover{background:#182c47}
+.btn.navy:hover{background:var(--navy-2)}
+.btn.big{font-size:15px;padding:19px 38px;box-shadow:0 14px 34px rgba(0,0,0,.35)}
 .kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-d);
   display:flex;align-items:center;gap:12px;font-weight:600}
 .kicker:before{content:"";width:34px;height:1px;background:var(--gold-d)}
@@ -45,7 +49,7 @@ a{text-decoration:none;color:inherit}
 .topbar .label{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
 .topbar .flame{color:var(--gold)}
 .count{display:flex;gap:6px;align-items:center}
-.count .box{background:#122034;border:1px solid rgba(201,169,98,.4);min-width:44px;padding:4px 6px;text-align:center}
+.count .box{background:var(--navy-2);border:1px solid rgba(201,169,98,.4);min-width:44px;padding:4px 6px;text-align:center}
 .count .n{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#f3ead9;line-height:1}
 .count .l{font-size:8px;letter-spacing:.14em;color:#bfa870}
 .topbar .price{font-size:12px;color:#cfc4ab}
@@ -64,33 +68,43 @@ header .btn{padding:12px 22px;font-size:12px}
 /* hero */
 .hero{position:relative;background:var(--navy);color:#efe6d4;overflow:hidden}
 .hero .bg{position:absolute;inset:0;background:url('autor.webp') center 18%/cover no-repeat;opacity:.35;filter:saturate(.85)}
-.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,27,46,.55) 0%,rgba(13,27,46,.88) 60%,var(--navy) 100%)}
-.hero .wrap{position:relative;padding:84px 20px 70px;text-align:center}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--navy-a55) 0%,var(--navy-a88) 60%,var(--navy) 100%)}
+.hero .glow{position:absolute;left:50%;top:38%;width:900px;height:900px;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,var(--glow) 0%,rgba(0,0,0,0) 60%);pointer-events:none}
+.hero .wrap{position:relative;padding:44px 20px 64px;text-align:center}
 .pill{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(201,169,98,.5);
-  border-radius:99px;padding:8px 18px;font-size:12px;letter-spacing:.06em;color:#e6dcc4;background:rgba(13,27,46,.5)}
+  border-radius:99px;padding:8px 18px;font-size:12px;letter-spacing:.06em;color:#e6dcc4;background:var(--navy-a55)}
 .pill b{color:var(--gold)}
-.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,5.6vw,58px);line-height:1.12;font-weight:600;margin:26px auto 8px;max-width:820px;color:#f6efe1}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,5vw,52px);line-height:1.1;font-weight:600;margin:18px auto 0;max-width:820px;color:#f6efe1}
 .hero h1 em{font-style:italic;color:var(--gold)}
-.hero .sub{max-width:640px;margin:18px auto 0;color:#cfc4ab;font-size:16.5px}
-.hero .stars{margin:26px 0 4px;color:var(--gold);letter-spacing:6px;font-size:14px}
+.hero .sub{max-width:600px;margin:16px auto 0;color:#cfc4ab;font-size:16px}
+.hero .stars{margin:22px 0 4px;color:var(--gold);letter-spacing:6px;font-size:14px}
 .hero .stars small{display:block;letter-spacing:.28em;font-size:10px;color:#bfa870;margin-top:8px;text-transform:uppercase}
 .hero .cta{margin-top:26px}
-/* VSL */
-.vsl{margin:30px auto 0;max-width:340px}
-.vsl-frame{position:relative;aspect-ratio:9/16;background:#08111d;border:1px solid rgba(201,169,98,.55);
-  box-shadow:0 24px 60px rgba(0,0,0,.55);overflow:hidden}
-.vsl-frame video{width:100%;height:100%;object-fit:cover;display:block}
-.vsl-play{position:absolute;inset:0;width:100%;height:100%;border:0;cursor:pointer;background:linear-gradient(180deg,rgba(13,27,46,.15),rgba(13,27,46,.75));
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#f3ead9}
-.vsl-ring{position:absolute;width:86px;height:86px;border-radius:50%;border:1px solid rgba(201,169,98,.7);animation:vslpulse 2.2s ease-out infinite}
-.vsl-tri{width:0;height:0;border-left:26px solid #f3ead9;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:6px;
-  filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
-.vsl-label{position:absolute;bottom:18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.vsl-play.hide{display:none}
-@keyframes vslpulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.6);opacity:0}}
-.hero .offer{margin:34px auto 0;max-width:560px;background:rgba(18,32,52,.72);border:1px solid rgba(201,169,98,.35);
-  padding:26px 28px;display:flex;gap:22px;align-items:center;text-align:left}
-.book3d{flex:0 0 96px;height:138px;background:linear-gradient(135deg,#16283f,#0d1b2e);
+.hero .cta small{display:block;margin-top:12px;font-size:12px;color:#bfa870;letter-spacing:.08em}
+/* VSL — autoplay mudo com legenda; toque = som do início */
+.vsl{margin:22px auto 0;max-width:380px;width:100%}
+.vsl-frame{position:relative;aspect-ratio:9/16;background:#000;border:1px solid var(--gold-a55);
+  border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 6px var(--gold-a12);overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(#fff,#000)}
+.vsl-frame video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vsl-tap{position:absolute;inset:0;width:100%;height:100%;border:0;cursor:pointer;background:rgba(0,0,0,.28);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#f3ead9;padding:0;-webkit-tap-highlight-color:transparent}
+.vsl-tap .ic{width:78px;height:78px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;
+  font-size:30px;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:vslbeat 1.6s ease-in-out infinite}
+.vsl-tap .t1{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.vsl-tap .t2{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.vsl-tap.hide{display:none}
+.vsl-bar{position:absolute;left:0;bottom:0;height:4px;width:0%;background:var(--gold);transition:width .25s linear}
+.vsl-pause{position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none}
+.vsl-pause.show{display:flex}
+.vsl-pause span{width:70px;height:70px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px}
+@keyframes vslbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+/* selos */
+.trust{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:22px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#bfa870}
+.trust span:before{content:"◆ ";color:var(--gold)}
+.hero .offer{margin:34px auto 0;max-width:560px;background:var(--navy-a72);border:1px solid var(--gold-a35);border-radius:12px;
+  padding:26px 28px;display:flex;gap:22px;align-items:center;text-align:left;backdrop-filter:blur(6px)}
+.book3d{flex:0 0 96px;height:138px;background:linear-gradient(135deg,var(--navy-2),var(--navy));
   border:1px solid rgba(201,169,98,.6);box-shadow:8px 10px 24px rgba(0,0,0,.45);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px}
 .book3d .t{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:.08em;color:#f3ead9;text-align:center;line-height:1.3}
@@ -216,7 +230,7 @@ details .a{padding:0 4px 22px;color:var(--ink-soft);font-size:14.5px}
 .final .foot{margin-top:26px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bfa870}
 .final .note{margin-top:14px;font-size:13px;color:#a9b8ce}
 
-footer{background:#0a1524;color:#7e8da2;padding:34px 0;font-size:12px;line-height:1.7}
+footer{background:var(--footer);color:#7e8da2;padding:34px 0;font-size:12px;line-height:1.7}
 footer .wrap{max-width:760px;text-align:center;color:#7e8da2}
 
 @media(max-width:880px){
@@ -273,24 +287,28 @@ footer .wrap{max-width:760px;text-align:center;color:#7e8da2}
 
 <!-- HERO -->
 <div class="hero">
-  <div class="bg"></div><div class="shade"></div>
+  <div class="bg"></div><div class="shade"></div><div class="glow"></div>
   <div class="wrap">
-    <span class="pill"><b>◆</b> Acesso imediato · Garantia incondicional de 7 dias</span>
+    <span class="pill"><b>◆</b> Uma palavra de Heitor · 1 minuto</span>
     <h1>O dinheiro que dura<br><em>não faz barulho.</em></h1>
-    <p class="sub">A riqueza que atravessa gerações não nasce da sorte — nasce de um código. Aprenda as regras silenciosas de comportamento, construção e proteção de patrimônio que raramente saem da mesa de quem as pratica.</p>
-    <div class="stars">★ ★ ★ ★ ★<small>Edição digital de lançamento</small></div>
     <!-- VSL -->
     <div class="vsl" id="vsl">
       <div class="vsl-frame">
-        <video id="vslv" playsinline preload="metadata" poster="vsl-poster.jpg" src="vsl.mp4"></video>
-        <button class="vsl-play" id="vslplay" aria-label="Assistir">
-          <span class="vsl-ring"></span>
-          <span class="vsl-tri"></span>
-          <span class="vsl-label">Uma palavra do autor · 1 min</span>
+        <video id="vslv" playsinline webkit-playsinline muted autoplay preload="auto" poster="vsl-poster.jpg">
+          <source src="vsl.mp4" type="video/mp4">
+        </video>
+        <button class="vsl-tap" id="vsltap" aria-label="Ativar som">
+          <span class="ic">🔊</span>
+          <span class="t1">Seu vídeo já começou</span>
+          <span class="t2">Toque para ouvir</span>
         </button>
+        <div class="vsl-pause" id="vslpause"><span>❚❚</span></div>
+        <div class="vsl-bar" id="vslbar"></div>
       </div>
     </div>
-    <div class="cta"><a class="btn" href="https://pay.hotmart.com/Q107548239S">Obter acesso imediato</a></div>
+    <p class="sub">A riqueza que atravessa gerações não nasce da sorte — nasce de um código. As regras silenciosas de comportamento, construção e proteção de patrimônio que raramente saem da mesa de quem as pratica.</p>
+    <div class="cta"><a class="btn big" href="https://pay.hotmart.com/Q107548239S">Quero o livro por R$ 44,50</a><small>Acesso imediato · Garantia incondicional de 7 dias</small></div>
+    <div class="trust"><span>Pagamento seguro</span><span>Pix ou cartão</span><span>Leitura em 4 noites</span></div>
     <div class="offer">
       <div class="book3d"><div class="orn">◆ ◆ ◆</div><div class="t">DINHEIRO<br>VELHO</div><div class="rule"></div></div>
       <div>
@@ -540,14 +558,25 @@ footer .wrap{max-width:760px;text-align:center;color:#7e8da2}
   }
   tick(); setInterval(tick,1000);
 })();
-// VSL: clique único pra tocar com som; controles nativos só depois de iniciar
+// VSL: começa sozinho mudo (unico autoplay que celular permite); toque = volta ao inicio com som.
+// Depois, toque no video pausa/retoma. Barra de progresso dourada embaixo.
 (function(){
-  var v=document.getElementById('vslv'), b=document.getElementById('vslplay');
-  if(!v||!b) return;
-  b.addEventListener('click',function(){
-    b.classList.add('hide'); v.controls=true; v.muted=false; v.play();
+  var v=document.getElementById('vslv'), tap=document.getElementById('vsltap'),
+      bar=document.getElementById('vslbar'), pz=document.getElementById('vslpause');
+  if(!v||!tap) return;
+  v.muted=true; v.defaultMuted=true;
+  var tryPlay=function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+  tryPlay(); document.addEventListener('visibilitychange',function(){ if(!document.hidden && v.paused && v.muted) tryPlay(); });
+  tap.addEventListener('click',function(e){
+    e.preventDefault(); tap.classList.add('hide');
+    v.muted=false; v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){ v.muted=true; tryPlay(); });
   });
-  v.addEventListener('ended',function(){ v.controls=false; b.classList.remove('hide'); });
+  v.addEventListener('click',function(){
+    if(!tap.classList.contains('hide')) return;   // ainda mudo: o botao cuida
+    if(v.paused){ v.play(); pz.classList.remove('show'); } else { v.pause(); pz.classList.add('show'); }
+  });
+  v.addEventListener('timeupdate',function(){ if(v.duration) bar.style.width=(v.currentTime/v.duration*100)+'%'; });
+  v.addEventListener('ended',function(){ pz.classList.remove('show'); tap.classList.remove('hide'); v.muted=true; v.currentTime=0; tryPlay(); });
 })();
 // tabs
 (function(){
