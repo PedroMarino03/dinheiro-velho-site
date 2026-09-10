@@ -69,6 +69,19 @@ header .btn{padding:12px 22px;font-size:12px}
 .hero .stars{margin:26px 0 4px;color:var(--gold);letter-spacing:6px;font-size:14px}
 .hero .stars small{display:block;letter-spacing:.28em;font-size:10px;color:#bfa870;margin-top:8px;text-transform:uppercase}
 .hero .cta{margin-top:26px}
+/* VSL */
+.vsl{margin:30px auto 0;max-width:340px}
+.vsl-frame{position:relative;aspect-ratio:9/16;background:#08111d;border:1px solid rgba(201,169,98,.55);
+  box-shadow:0 24px 60px rgba(0,0,0,.55);overflow:hidden}
+.vsl-frame video{width:100%;height:100%;object-fit:cover;display:block}
+.vsl-play{position:absolute;inset:0;width:100%;height:100%;border:0;cursor:pointer;background:linear-gradient(180deg,rgba(13,27,46,.15),rgba(13,27,46,.75));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#f3ead9}
+.vsl-ring{position:absolute;width:86px;height:86px;border-radius:50%;border:1px solid rgba(201,169,98,.7);animation:vslpulse 2.2s ease-out infinite}
+.vsl-tri{width:0;height:0;border-left:26px solid #f3ead9;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:6px;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+.vsl-label{position:absolute;bottom:18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.vsl-play.hide{display:none}
+@keyframes vslpulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.6);opacity:0}}
 .hero .offer{margin:34px auto 0;max-width:560px;background:rgba(18,32,52,.72);border:1px solid rgba(201,169,98,.35);
   padding:26px 28px;display:flex;gap:22px;align-items:center;text-align:left}
 .book3d{flex:0 0 96px;height:138px;background:linear-gradient(135deg,#16283f,#0d1b2e);
@@ -260,6 +273,17 @@ footer .wrap{max-width:760px;text-align:center;color:#7e8da2}
     <h1>O dinheiro que dura<br><em>não faz barulho.</em></h1>
     <p class="sub">A riqueza que atravessa gerações não nasce da sorte — nasce de um código. Aprenda as regras silenciosas de comportamento, construção e proteção de patrimônio que raramente saem da mesa de quem as pratica.</p>
     <div class="stars">★ ★ ★ ★ ★<small>Edição digital de lançamento</small></div>
+    <!-- VSL -->
+    <div class="vsl" id="vsl">
+      <div class="vsl-frame">
+        <video id="vslv" playsinline preload="metadata" poster="vsl-poster.jpg" src="vsl.mp4"></video>
+        <button class="vsl-play" id="vslplay" aria-label="Assistir">
+          <span class="vsl-ring"></span>
+          <span class="vsl-tri"></span>
+          <span class="vsl-label">Uma palavra do autor · 1 min</span>
+        </button>
+      </div>
+    </div>
     <div class="cta"><a class="btn" href="https://pay.hotmart.com/Q107548239S">Obter acesso imediato</a></div>
     <div class="offer">
       <div class="book3d"><div class="orn">◆ ◆ ◆</div><div class="t">DINHEIRO<br>VELHO</div><div class="rule"></div></div>
@@ -509,6 +533,15 @@ footer .wrap{max-width:760px;text-align:center;color:#7e8da2}
     document.getElementById('cd-s').textContent=p(ss);
   }
   tick(); setInterval(tick,1000);
+})();
+// VSL: clique único pra tocar com som; controles nativos só depois de iniciar
+(function(){
+  var v=document.getElementById('vslv'), b=document.getElementById('vslplay');
+  if(!v||!b) return;
+  b.addEventListener('click',function(){
+    b.classList.add('hide'); v.controls=true; v.muted=false; v.play();
+  });
+  v.addEventListener('ended',function(){ v.controls=false; b.classList.remove('hide'); });
 })();
 // tabs
 (function(){
