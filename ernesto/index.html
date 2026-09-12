@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dinheiro Velho — Ernesto Camargo</title>
+<meta name="description" content="Dinheiro Velho — o código silencioso das famílias que atravessam gerações. Livro digital com acesso imediato e garantia de 7 dias.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230d1b2e'/%3E%3Crect x='6' y='6' width='52' height='52' rx='6' fill='none' stroke='%23c9a962' stroke-width='2'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23f3ead9' letter-spacing='1'%3EDV%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/ernesto/vsl-poster.jpg?v=e1310759">
+<meta property="og:title" content="Dinheiro Velho — Ernesto Camargo">
+<meta property="og:description" content="O dinheiro que dura não faz barulho. O código das famílias que atravessam gerações, em livro digital.">
+<meta property="og:image" content="https://dinheirovelho.com/ernesto/vsl-poster.jpg?v=e1310759">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#20240f; --navy-2:#333a1c; --footer:#15180a; --paper:#f7f5ec; --paper-2:#eeead9;
+  --gold:#cfa95e; --gold-d:#b08c46; --gold-h:#957439; --ink:#23261a; --ink-soft:#565a47; --line:#e0ddc9;
+  --navy-a55:rgba(32,36,15,.55); --navy-a72:rgba(51,58,28,.72); --navy-a88:rgba(32,36,15,.88);
+  --gold-a12:rgba(207,169,94,.12); --gold-a35:rgba(207,169,94,.35); --gold-a55:rgba(207,169,94,.55);
+  --glow:rgba(150,130,40,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+.serif{font-family:'Playfair Display',Georgia,serif}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;background:var(--gold-d);color:#fff;font-weight:600;font-size:14px;
+  letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;border:0;cursor:pointer;
+  transition:.2s;text-align:center}
+.btn:hover{background:var(--gold-h)}
+.btn.navy{background:var(--navy);color:#f3ead9}
+.btn.navy:hover{background:var(--navy-2)}
+.btn.big{font-size:15px;padding:19px 38px;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-d);
+  display:flex;align-items:center;gap:12px;font-weight:600}
+.kicker:before{content:"";width:34px;height:1px;background:var(--gold-d)}
+.center .kicker{justify-content:center}
+.center .kicker:after{content:"";width:34px;height:1px;background:var(--gold-d)}
+
+/* topbar */
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#efe6d4;
+  border-bottom:1px solid rgba(201,169,98,.25)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 20px}
+.topbar .label{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.topbar .flame{color:var(--gold)}
+.count{display:flex;gap:6px;align-items:center}
+.count .box{background:var(--navy-2);border:1px solid rgba(201,169,98,.4);min-width:44px;padding:4px 6px;text-align:center}
+.count .n{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#f3ead9;line-height:1}
+.count .l{font-size:8px;letter-spacing:.14em;color:#bfa870}
+.topbar .price{font-size:12px;color:#cfc4ab}
+.topbar .price s{opacity:.6;margin-right:6px}
+.topbar .price b{color:#fff}
+.topbar .btn{padding:9px 16px;font-size:11px}
+
+/* header */
+header{background:var(--paper);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.brand{font-size:14px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+nav{display:flex;gap:26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+nav a:hover{color:var(--gold-d)}
+header .btn{padding:12px 22px;font-size:12px}
+
+/* hero */
+.hero{position:relative;background:var(--navy);color:#efe6d4;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url('/ernesto/autor.webp') center 18%/cover no-repeat;opacity:.35;filter:saturate(.85)}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--navy-a55) 0%,var(--navy-a88) 60%,var(--navy) 100%)}
+.hero .glow{position:absolute;left:50%;top:38%;width:900px;height:900px;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,var(--glow) 0%,rgba(0,0,0,0) 60%);pointer-events:none}
+.hero .wrap{position:relative;padding:44px 20px 64px;text-align:center}
+.pill{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(201,169,98,.5);
+  border-radius:99px;padding:8px 18px;font-size:12px;letter-spacing:.06em;color:#e6dcc4;background:var(--navy-a55)}
+.pill b{color:var(--gold)}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,5vw,52px);line-height:1.1;font-weight:600;margin:18px auto 0;max-width:820px;color:#f6efe1}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .sub{max-width:600px;margin:16px auto 0;color:#cfc4ab;font-size:16px}
+.hero .stars{margin:22px 0 4px;color:var(--gold);letter-spacing:6px;font-size:14px}
+.hero .stars small{display:block;letter-spacing:.28em;font-size:10px;color:#bfa870;margin-top:8px;text-transform:uppercase}
+.hero .cta{margin-top:26px}
+.hero .cta small{display:block;margin-top:12px;font-size:12px;color:#bfa870;letter-spacing:.08em}
+/* VSL — autoplay mudo com legenda; toque = som do início */
+.vsl{margin:22px auto 0;max-width:380px;width:100%}
+.vsl-frame{position:relative;aspect-ratio:9/16;background:#000;border:1px solid var(--gold-a55);
+  border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 6px var(--gold-a12);overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(#fff,#000)}
+.vsl-frame video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vsl-tap{position:absolute;inset:0;width:100%;height:100%;border:0;cursor:pointer;background:rgba(0,0,0,.28);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#f3ead9;padding:0;-webkit-tap-highlight-color:transparent}
+.vsl-tap .ic{width:78px;height:78px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;
+  font-size:30px;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:vslbeat 1.6s ease-in-out infinite}
+.vsl-tap .t1{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.vsl-tap .t2{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.vsl-tap.hide{display:none}
+.vsl-bar{position:absolute;left:0;bottom:0;height:4px;width:0%;background:var(--gold);transition:width .25s linear}
+.vsl-pause{position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none}
+.vsl-pause.show{display:flex}
+.vsl-pause span{width:70px;height:70px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px}
+@keyframes vslbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+/* selos */
+.trust{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:22px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#bfa870}
+.trust span:before{content:"◆ ";color:var(--gold)}
+.hero .offer{margin:34px auto 0;max-width:560px;background:var(--navy-a72);border:1px solid var(--gold-a35);border-radius:12px;
+  padding:26px 28px;display:flex;gap:22px;align-items:center;text-align:left;backdrop-filter:blur(6px)}
+.book3d{flex:0 0 96px;height:138px;background:linear-gradient(135deg,var(--navy-2),var(--navy));
+  border:1px solid rgba(201,169,98,.6);box-shadow:8px 10px 24px rgba(0,0,0,.45);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px}
+.book3d .t{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:.08em;color:#f3ead9;text-align:center;line-height:1.3}
+.book3d .orn{color:var(--gold);font-size:8px;letter-spacing:.4em}
+.book3d .rule{width:26px;height:1px;background:var(--gold)}
+.offer .price-now{font-family:'Playfair Display',serif;font-size:34px;color:#fff}
+.offer .price-old{font-size:13px;color:#9fb0c8}
+.offer .price-old s{color:#93a5bf}
+.offer .meta{font-size:12.5px;color:#cfc4ab;margin-top:8px}
+.offer .note{font-size:12px;color:#a9b8ce;margin-top:10px;line-height:1.5}
+
+/* sections */
+section{padding:84px 0}
+.diag{background:#fff}
+.grid-2{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start}
+h2.big{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.6vw,42px);line-height:1.18;font-weight:600;color:var(--navy);margin-top:18px}
+h2.big em{font-style:italic;color:var(--gold-d)}
+.lead{color:var(--ink-soft);margin-top:18px;font-size:16px}
+.pain{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--line)}
+.pain .item{padding:26px 28px;border-bottom:1px solid var(--line)}
+.pain .item:nth-child(odd){border-right:1px solid var(--line)}
+.pain .n{font-family:'Playfair Display',serif;color:var(--gold-d);font-size:15px}
+.pain h3{font-family:'Playfair Display',serif;font-size:18.5px;line-height:1.3;color:var(--navy);margin:8px 0 8px;font-weight:600}
+.pain p{font-size:13.5px;color:var(--ink-soft)}
+
+/* método */
+.method{background:var(--paper)}
+.method .head{text-align:center;max-width:720px;margin:0 auto 48px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:#fff}
+.tab{padding:20px 18px;cursor:pointer;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.tab:last-child{border-right:0}
+.tab .num{font-family:'Playfair Display',serif;color:var(--gold-d);font-size:14px;align-self:flex-end}
+.tab .ic{color:var(--gold-d);font-size:18px}
+.tab h4{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:600}
+.tab.active{background:var(--navy)}
+.tab.active h4,.tab.active .num{color:#f3ead9}
+.tab.active .ic{color:var(--gold)}
+.panel{display:none;background:#fff;border:1px solid var(--line);border-top:0;padding:44px}
+.panel.active{display:grid;grid-template-columns:1.2fr 1fr;gap:44px}
+.panel h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);font-weight:600;line-height:1.25}
+.panel .desc{color:var(--ink-soft);font-size:14.5px;margin-top:14px}
+.panel ul{list-style:none;margin-top:6px}
+.panel li{padding:13px 0;border-bottom:1px solid var(--line);font-size:14px;display:flex;gap:10px}
+.panel li:before{content:"✓";color:var(--gold-d);font-weight:700}
+.panel .result{background:var(--paper-2);border-left:2px solid var(--gold-d);padding:22px;margin-top:18px}
+.panel .result .k{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-d);font-weight:600}
+.panel .result p{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--navy);margin-top:8px}
+
+/* price bar */
+.pricebar{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0}
+.pricebar .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;background:var(--paper-2);
+  border:1px solid var(--line);padding:30px 34px}
+.pricebar .de{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.pricebar .de s{color:#8d99ad}
+.pricebar .val{font-family:'Playfair Display',serif;font-size:38px;color:var(--navy)}
+.pricebar .note{font-size:12.5px;color:var(--ink-soft);max-width:380px}
+
+/* biblioteca */
+.library{background:var(--paper)}
+.lib-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;margin-top:44px}
+.lib-item{display:flex;justify-content:space-between;gap:20px;padding:20px 4px;border-bottom:1px solid var(--line)}
+.lib-item h4{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:600}
+.lib-item p{font-size:13px;color:var(--ink-soft);margin-top:5px}
+.lib-item .v{font-size:13px;color:#8d99ad;white-space:nowrap;text-decoration:line-through}
+.lib-card{background:#fff;border:1px solid var(--line);padding:38px;text-align:center;position:sticky;top:90px}
+.lib-card .book3d{margin:0 auto;transform:scale(1.35);transform-origin:top center}
+.lib-card .sp{height:56px}
+.lib-card .k{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.lib-card .sum{font-family:'Playfair Display',serif;font-size:26px;color:#8d99ad;text-decoration:line-through;margin:6px 0 20px}
+.lib-card hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+.lib-card .agora{font-family:'Playfair Display',serif;font-size:40px;color:var(--navy)}
+.lib-card .meta{font-size:12.5px;color:var(--ink-soft);margin:10px 0 20px}
+
+/* autor */
+.author{background:var(--navy);color:#e6dcc4}
+.author .grid-2{grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.author img{border:1px solid rgba(201,169,98,.45);filter:saturate(.9)}
+.author h2{color:#f6efe1}
+.author p{color:#cfc4ab;font-size:15px;margin-top:16px}
+.tl{margin-top:54px;border-top:1px solid rgba(201,169,98,.25)}
+.tl .row{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:18px 0;border-bottom:1px solid rgba(201,169,98,.18)}
+.tl .era{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;padding-top:3px}
+.tl .txt{font-size:14.5px;color:#cfc4ab}
+
+/* citações */
+.quotes{background:#fff}
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.q-card{background:var(--paper);border:1px solid var(--line);padding:30px}
+.q-card .stars{color:var(--gold-d);letter-spacing:4px;font-size:12px}
+.q-card p{font-family:'Playfair Display',serif;font-style:italic;font-size:16.5px;line-height:1.5;color:var(--navy);margin:16px 0 18px}
+.q-card .who{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* garantia */
+.guarantee{background:var(--paper-2)}
+.guarantee .wrap{max-width:760px;text-align:center}
+.seal{width:86px;height:86px;border:1px solid var(--gold-d);border-radius:50%;margin:0 auto 24px;
+  display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;
+  font-size:26px;color:var(--gold-d);position:relative}
+.seal:after{content:"";position:absolute;inset:6px;border:1px solid rgba(176,141,74,.4);border-radius:50%}
+.guarantee h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.4vw,36px);color:var(--navy);font-weight:600}
+.guarantee p{color:var(--ink-soft);margin-top:16px;font-size:15.5px}
+
+/* faq */
+.faq{background:#fff}
+.faq .grid-2{grid-template-columns:.8fr 1.2fr}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+  padding:22px 4px;font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--gold-d);font-size:22px;font-family:Inter}
+details[open] summary:after{content:"–"}
+details .a{padding:0 4px 22px;color:var(--ink-soft);font-size:14.5px}
+
+/* oferta final */
+.final{background:var(--navy);color:#e6dcc4;text-align:left}
+.final .wrap{max-width:720px}
+.final h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,44px);color:#f6efe1;font-weight:600;line-height:1.15}
+.final .lead{color:#cfc4ab}
+.final .de{margin-top:34px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#9fb0c8}
+.final .de s{color:#8d99ad}
+.final .agora{font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,54px);color:#fff;margin:4px 0 26px}
+.final .agora b{color:var(--gold)}
+.final .foot{margin-top:26px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bfa870}
+.final .note{margin-top:14px;font-size:13px;color:#a9b8ce}
+
+footer{background:var(--footer);color:#7e8da2;padding:34px 0;font-size:12px;line-height:1.7}
+footer .wrap{max-width:760px;text-align:center;color:#7e8da2}
+
+@media(max-width:880px){
+  .topbar .price, .topbar .label{display:none}
+  .topbar .wrap{justify-content:center;gap:12px;padding:8px 12px}
+  .topbar .btn{padding:9px 12px;font-size:10px;letter-spacing:.08em}
+  nav{display:none}
+  .grid-2,.author .grid-2,.faq .grid-2{grid-template-columns:1fr;gap:36px}
+  .pain{grid-template-columns:1fr}
+  .pain .item:nth-child(odd){border-right:0}
+  .tabs{grid-template-columns:repeat(2,1fr)}
+  .tab{border-bottom:1px solid var(--line)}
+  .panel.active{grid-template-columns:1fr;padding:28px}
+  .lib-grid{grid-template-columns:1fr}
+  .lib-card{position:static}
+  .q-grid{grid-template-columns:1fr}
+  .pricebar .wrap{flex-direction:column;text-align:center}
+  .hero .offer{flex-direction:column;text-align:center}
+  section{padding:60px 0}
+  .tl .row{grid-template-columns:1fr;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="label"><span class="flame">◆</span><span class="txt">Oferta especial de lançamento</span><span style="opacity:.5">|</span><span>Encerra em</span></div>
+    <div class="count" id="count">
+      <div class="box"><div class="n" id="cd-d">–</div><div class="l">DIAS</div></div>
+      <div class="box"><div class="n" id="cd-h">–</div><div class="l">HRS</div></div>
+      <div class="box"><div class="n" id="cd-m">–</div><div class="l">MIN</div></div>
+      <div class="box"><div class="n" id="cd-s">–</div><div class="l">SEG</div></div>
+    </div>
+    <div class="price"><s>De R$ 79,90</s> <b>Por R$ 44,50</b></div>
+    <a class="btn" href="https://pay.hotmart.com/Q107548239S">Quero meu acesso</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap">
+    <div class="brand">ERNESTO CAMARGO</div>
+    <nav>
+      <a href="#diagnostico">Livro</a>
+      <a href="#metodo">Conteúdo</a>
+      <a href="#autor">Autor</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn navy" href="https://pay.hotmart.com/Q107548239S">Começar agora</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="bg"></div><div class="shade"></div><div class="glow"></div>
+  <div class="wrap">
+    <span class="pill"><b>◆</b> Uma palavra de Ernesto · 1 minuto</span>
+    <h1>O dinheiro que dura<br><em>não faz barulho.</em></h1>
+    <!-- VSL -->
+    <div class="vsl" id="vsl">
+      <div class="vsl-frame">
+        <video id="vslv" playsinline webkit-playsinline muted autoplay preload="auto" poster="/ernesto/vsl-poster.jpg?v=e1310759">
+          <source src="/ernesto/vsl.mp4?v=c01b546a" type="video/mp4">
+        </video>
+        <button class="vsl-tap" id="vsltap" aria-label="Ativar som">
+          <span class="ic">🔊</span>
+          <span class="t1">Seu vídeo já começou</span>
+          <span class="t2">Toque para ouvir</span>
+        </button>
+        <div class="vsl-pause" id="vslpause"><span>❚❚</span></div>
+        <div class="vsl-bar" id="vslbar"></div>
+      </div>
+    </div>
+    <p class="sub">A riqueza que atravessa gerações não nasce da sorte — nasce de um código. As regras silenciosas de comportamento, construção e proteção de patrimônio que raramente saem da mesa de quem as pratica.</p>
+    <div class="cta"><a class="btn big" href="https://pay.hotmart.com/Q107548239S">Quero o livro por R$ 44,50</a><small>Acesso imediato · Garantia incondicional de 7 dias</small></div>
+    <div class="trust"><span>Pagamento seguro</span><span>Pix ou cartão</span><span>Leitura em 4 noites</span></div>
+    <div class="offer">
+      <div class="book3d"><div class="orn">◆ ◆ ◆</div><div class="t">DINHEIRO<br>VELHO</div><div class="rule"></div></div>
+      <div>
+        <div class="price-old"><s>Normalmente R$ 79,90</s></div>
+        <div class="price-now">R$ 44,50</div>
+        <div class="meta">Pagamento único · Acesso vitalício · Garantia de 7 dias</div>
+        <div class="note">Oferta de lançamento por tempo limitado — o bônus <em>Cartas de um Patriarca</em> é exclusivo desta semana.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIAGNÓSTICO -->
+<section class="diag" id="diagnostico">
+  <div class="wrap grid-2">
+    <div>
+      <div class="kicker">O diagnóstico</div>
+      <h2 class="big">O problema nunca foi quanto você ganha.<br><em>Foi ninguém ter lhe entregado o código.</em></h2>
+      <p class="lead">Gente competente, com décadas de trabalho, chega aos cinquenta sem patrimônio à altura do que produziu. Não por falta de esforço — por falta das regras que algumas famílias ensinam à mesa e as outras nunca chegam a ouvir.</p>
+    </div>
+    <div class="pain">
+      <div class="item"><div class="n">01</div><h3>O salário desaparece antes do fim do mês</h3><p>O dinheiro entra e sai pela mesma porta, porque nunca existiu uma estrutura entre o recebimento e o gasto.</p></div>
+      <div class="item"><div class="n">02</div><h3>Aparência cara, estrutura frágil</h3><p>Marcas no corpo, parcelas na fatura e nada acumulando. A imagem de riqueza consumindo a chance de tê-la.</p></div>
+      <div class="item"><div class="n">03</div><h3>Decisões tomadas no impulso</h3><p>Uma dica aqui, um medo ali. Sem critério próprio, o patrimônio vira uma coleção de reações que ninguém sabe explicar.</p></div>
+      <div class="item"><div class="n">04</div><h3>Pessoas erradas perto do bolso</h3><p>Relações que drenam em silêncio — e os sinais de caráter que ninguém ensinou a ler antes que custassem caro.</p></div>
+      <div class="item"><div class="n">05</div><h3>Uma educação financeira que nunca chegou</h3><p>Juros compostos, reserva, sucessão: aprendemos a ganhar dinheiro, jamais a conservá-lo e transmiti-lo.</p></div>
+      <div class="item"><div class="n">06</div><h3>Liberdade adiada indefinidamente</h3><p>Trabalhar por escolha deveria ser o destino natural de quem produz a vida inteira. Para a maioria, nunca chega.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="method" id="metodo">
+  <div class="wrap">
+    <div class="head center">
+      <div class="kicker">O método</div>
+      <h2 class="big">Quatro códigos que sustentam<br>qualquer patrimônio duradouro.</h2>
+      <p class="lead">Cada código é uma parte do livro. Juntos, formam a estrutura que resiste a ciclos, crises e ao próprio tempo.</p>
+    </div>
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-p="0"><span class="ic">◈</span><h4>O Código Invisível</h4><span class="num">I</span></div>
+      <div class="tab" data-p="1"><span class="ic">◈</span><h4>Os Códigos Sociais</h4><span class="num">II</span></div>
+      <div class="tab" data-p="2"><span class="ic">◈</span><h4>O Dinheiro na Prática</h4><span class="num">III</span></div>
+      <div class="tab" data-p="3"><span class="ic">◈</span><h4>Legado e Proteção</h4><span class="num">IV</span></div>
+    </div>
+    <div class="panel active">
+      <div>
+        <h3>Antes do primeiro real investido, o primeiro princípio.</h3>
+        <p class="desc">Patrimônio é consequência de comportamento. Este código trata da relação que você mantém com o dinheiro: como decide, o que teme, o que exibe e o que adia sem perceber.</p>
+        <div class="result"><div class="k">Resultado esperado</div><p>Você para de reagir ao mercado — e às vitrines — e passa a operar segundo critérios próprios.</p></div>
+      </div>
+      <ul>
+        <li>Riqueza que grita versus riqueza que dura</li>
+        <li>O custo invisível das decisões emocionais</li>
+        <li>A paciência como vantagem definitiva</li>
+        <li>Ruído, opinião e informação</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div>
+        <h3>As regras que revelam — e protegem — quem você é.</h3>
+        <p class="desc">A mesa, a roupa, a casa, as relações. O capítulo que as outras educações financeiras não têm: o comportamento que as famílias antigas transmitem de viva voz.</p>
+        <div class="result"><div class="k">Resultado esperado</div><p>Você passa a ler as pessoas e as situações — antes que elas custem patrimônio.</p></div>
+      </div>
+      <ul>
+        <li>As regras da mesa — presença, conta, gorjeta e silêncio</li>
+        <li>A aparência certa: nem pobreza, nem vitrine</li>
+        <li>A casa em ordem: família e dinheiro</li>
+        <li>Comprar em silêncio, construir em silêncio</li>
+        <li>As pessoas que custam caro: os cinco sinais</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div>
+        <h3>Da renda ao patrimônio que trabalha sozinho.</h3>
+        <p class="desc">O método completo: excedente antes do gasto, reserva antes do voo, os instrumentos brasileiros explicados sem dialeto — e a dívida posta no lugar dela.</p>
+        <div class="result"><div class="k">Resultado esperado</div><p>Um plano que cabe numa página — e a serenidade de quem sabe exatamente o que está fazendo.</p></div>
+      </div>
+      <ul>
+        <li>Pague primeiro a si mesmo</li>
+        <li>A reserva que compra o seu sono</li>
+        <li>Renda fixa, renda variável e fundos imobiliários</li>
+        <li>Diversificação de verdade e juros compostos</li>
+        <li>Dívida: a ferramenta e a armadilha</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div>
+        <h3>Construir sem proteger é começar de novo a cada geração.</h3>
+        <p class="desc">Seguros, sucessão, previdência e a separação legal entre a família e os riscos — o código que faz o patrimônio sobreviver a você.</p>
+        <div class="result"><div class="k">Resultado esperado</div><p>O que você construiu chega inteiro a quem você ama — com o manual junto.</p></div>
+      </div>
+      <ul>
+        <li>Seguros: a parede que ninguém vê</li>
+        <li>Sucessão e o patrimônio que muda de mãos</li>
+        <li>Proteção dentro da lei</li>
+        <li>Previdência privada sem mistério</li>
+        <li>Ensinar os que vêm depois: os três envelopes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE BAR -->
+<div class="pricebar">
+  <div class="wrap">
+    <div>
+      <div class="de">De <s>R$ 79,90</s> por</div>
+      <div class="val">R$ 44,50</div>
+    </div>
+    <div class="note">Oferta de lançamento válida por tempo limitado — o bônus <em>Cartas de um Patriarca</em> é exclusivo desta semana.</div>
+    <a class="btn" href="https://pay.hotmart.com/Q107548239S">Quero meu acesso</a>
+  </div>
+</div>
+
+<!-- BIBLIOTECA -->
+<section class="library">
+  <div class="wrap">
+    <div class="center" style="text-align:center;max-width:700px;margin:0 auto">
+      <div class="kicker">O que você vai receber</div>
+      <h2 class="big">Uma biblioteca completa sobre<br>patrimônio que atravessa gerações.</h2>
+    </div>
+    <div class="lib-grid">
+      <div>
+        <div class="lib-item"><div><h4>Dinheiro Velho — Livro Digital</h4><p>22 capítulos em leitura editorial, mais de 60 páginas diagramadas.</p></div><div class="v">R$ 79,90</div></div>
+        <div class="lib-item"><div><h4>Checklist Dinheiro Velho</h4><p>Um diagnóstico honesto da sua situação atual, item por item.</p></div><div class="v">R$ 37,00</div></div>
+        <div class="lib-item"><div><h4>Plano de Patrimônio de Uma Página</h4><p>Objetivos, aportes e horizontes organizados numa única página.</p></div><div class="v">R$ 49,00</div></div>
+        <div class="lib-item"><div><h4>As 12 Regras da Mesa</h4><p>O resumo do código social — para guardar, reler e um dia ensinar.</p></div><div class="v">R$ 29,00</div></div>
+        <div class="lib-item"><div><h4>Atualizações Vitalícias</h4><p>Toda nova edição do livro chega até você, sem custo adicional.</p></div><div class="v">R$ 59,00</div></div>
+        <div class="lib-item"><div><h4>Bônus Exclusivo — Cartas de um Patriarca</h4><p>Doze cartas breves sobre disciplina, ciclos e permanência.</p></div><div class="v">R$ 39,00</div></div>
+      </div>
+      <div class="lib-card">
+        <div class="book3d"><div class="orn">◆ ◆ ◆</div><div class="t">DINHEIRO<br>VELHO</div><div class="rule"></div></div>
+        <div class="sp"></div>
+        <div class="k">Valor somado dos materiais</div>
+        <div class="sum">R$ 292,90</div>
+        <hr>
+        <div class="k">Preço de lançamento — de R$ 79,90 por</div>
+        <div class="agora">R$ 44,50</div>
+        <div class="meta">Pagamento único, acesso vitalício e garantia incondicional de 7 dias.</div>
+        <a class="btn" style="width:100%" href="https://pay.hotmart.com/Q107548239S">Quero meu acesso</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOR -->
+<section class="author" id="autor">
+  <div class="wrap grid-2">
+    <div><img src="/ernesto/autor.webp" alt="Ernesto Camargo"></div>
+    <div>
+      <div class="kicker">O autor</div>
+      <h2 class="big serif">Ernesto Camargo</h2>
+      <p>Cresci no interior, numa casa onde dinheiro não era assunto de mesa — era conduta. Passei cinquenta anos entre fazendas, galpões e escritórios vendo de perto a mesma cena se repetir: renda igual, destinos opostos. Uns deixam herança, outros deixam dívida.</p><p>A diferença nunca foi inteligência, e muito menos sorte. Foi um conjunto de regras silenciosas — de paciência, de discrição, de escolha de compromissos — que quem tem aprende em casa e quem não tem passa a vida sem saber que existe.</p><p>Neste livro eu escrevi essas regras do jeito que aprendi e do jeito que ensinei aos meus: sem fórmula mágica e sem pressa. O que está aqui funcionou por meio século — e é por isso que vai continuar funcionando.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tl">
+      <div class="row"><div class="era">Anos 1970</div><div class="txt">O balcão do armazém da família — e a primeira regra, dita pelo meu avô: "quem anota manda no dinheiro; quem não anota obedece."</div></div><div class="row"><div class="era">Anos 1980–90</div><div class="txt">Inflação, planos e confiscos: a década em que vi os apressados quebrarem e os discretos comprarem — e entendi de que lado ficar.</div></div><div class="row"><div class="era">Anos 2000</div><div class="txt">A colheita silenciosa: patrimônio construído devagar, longe de vitrine, revisado pouco e protegido sempre.</div></div><div class="row"><div class="era">Hoje</div><div class="txt">A decisão de passar adiante, por escrito, o que sempre foi ensinado só de viva voz — para quem não teve um avô de balcão.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CITAÇÕES DO LIVRO -->
+<section class="quotes">
+  <div class="wrap">
+    <div class="center" style="text-align:center;max-width:700px;margin:0 auto">
+      <div class="kicker">Dentro do livro</div>
+      <h2 class="big">Escrito para ser sublinhado.</h2>
+      <p class="lead">Algumas linhas do que espera por você — sem cortes, direto das páginas.</p>
+    </div>
+    <!-- Quando houver depoimentos reais de leitores, esta seção pode dar lugar a eles. -->
+    <div class="q-grid">
+      <div class="q-card"><div class="stars">★ ★ ★ ★ ★</div><p>“Quem compra a imagem de rico adia, todos os meses, a possibilidade de sê-lo.”</p><div class="who">Capítulo 1 · Riqueza que grita, riqueza que dura</div></div>
+      <div class="q-card"><div class="stars">★ ★ ★ ★ ★</div><p>“O mercado transfere dinheiro dos apressados para os pacientes. Há mais de um século ele faz isso.”</p><div class="who">Capítulo 3 · A paciência como vantagem definitiva</div></div>
+      <div class="q-card"><div class="stars">★ ★ ★ ★ ★</div><p>“Divide-se o plano com quem tem papel nele; o resultado, com quem se ama; e o processo, com ninguém.”</p><div class="who">Capítulo 8 · Comprar em silêncio, construir em silêncio</div></div>
+      <div class="q-card"><div class="stars">★ ★ ★ ★ ★</div><p>“O caráter aparece no troco, não no contrato.”</p><div class="who">Capítulo 9 · As pessoas que custam caro</div></div>
+      <div class="q-card"><div class="stars">★ ★ ★ ★ ★</div><p>“Quem se paga por último não se paga nunca.”</p><div class="who">Capítulo 10 · Pague primeiro a si mesmo</div></div>
+      <div class="q-card"><div class="stars">★ ★ ★ ★ ★</div><p>“Serenidade, ao contrário do que parece, não é um traço de personalidade. É um saldo.”</p><div class="who">Capítulo 11 · A reserva que compra o seu sono</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="seal">7</div>
+    <div class="kicker" style="justify-content:center">Garantia incondicional</div>
+    <h2>Sete dias para ler inteiro.<br>Sem risco algum.</h2>
+    <p>Leia o livro do começo ao fim, aplique o checklist, monte o seu plano. Se em até sete dias você concluir que o conteúdo não é para o seu momento, basta escrever. O valor volta integral — sem perguntas, sem formulários e sem constrangimento.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap grid-2">
+    <div>
+      <div class="kicker">Perguntas frequentes</div>
+      <h2 class="big">Tudo o que você precisa saber<br>antes de começar.</h2>
+    </div>
+    <div>
+      <details open><summary>Como recebo o livro após a compra?</summary><div class="a">O acesso é imediato. Assim que o pagamento é confirmado, você recebe por e-mail o link para leitura e download do livro digital e de todos os materiais complementares. Nada é enviado pelos correios.</div></details>
+      <details><summary>O acesso é realmente vitalício?</summary><div class="a">Sim. Você paga uma única vez e o material é seu — incluindo toda nova edição do livro, que chega sem custo adicional.</div></details>
+      <details><summary>Preciso entender de investimentos para aproveitar?</summary><div class="a">Não. O livro começa pelo comportamento e explica cada instrumento em português claro, sem dialeto de mercado. Foi escrito para quem está começando — e para quem começou errado.</div></details>
+      <details><summary>Quanto tempo leva para ler?</summary><div class="a">São 22 capítulos curtos, pensados para leitura de poucos minutos cada. A maioria dos leitores termina em três ou quatro noites — e volta sempre aos materiais de consulta.</div></details>
+      <details><summary>Como funciona a garantia?</summary><div class="a">Você tem 7 dias, por lei e por convicção. Se o conteúdo não for para o seu momento, basta escrever e o valor volta integral, sem perguntas.</div></details>
+      <details><summary>Quais são as formas de pagamento?</summary><div class="a">Cartão de crédito (com parcelamento) ou Pix, em ambiente seguro processado pela plataforma de pagamento.</div></details>
+      <details><summary>Existe algum compromisso ou mensalidade?</summary><div class="a">Nenhum. Pagamento único, sem assinatura, sem cobrança recorrente e sem surpresa na fatura.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--gold)">Oferta de lançamento</div>
+    <h2>O melhor investimento sempre<br>começa pelo conhecimento.</h2>
+    <p class="lead" style="margin-top:18px">22 capítulos e todos os materiais complementares, com acesso imediato e vitalício. Um pagamento único e sete dias de garantia incondicional.</p>
+    <div class="de">De <s>R$ 79,90</s></div>
+    <div class="agora">Por apenas <b>R$ 44,50</b></div>
+    <a class="btn" href="https://pay.hotmart.com/Q107548239S">Quero meu acesso agora</a>
+    <div class="note">Oferta de lançamento válida por tempo limitado — o bônus <em>Cartas de um Patriarca</em> é exclusivo desta semana.</div>
+    <div class="foot">Pagamento único • Acesso vitalício • Garantia de 7 dias</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Dinheiro Velho</strong> · Edição digital</p>
+    <p style="margin-top:10px">Este material tem fins exclusivamente educacionais sobre finanças pessoais e comportamento financeiro. Não constitui recomendação individualizada de investimento nem consultoria financeira personalizada. Resultados dependem da situação e das decisões de cada leitor.</p>
+  </div>
+</footer>
+
+<script>
+// countdown até a meia-noite de amanhã (renova diariamente)
+(function(){
+  function tick(){
+    var now=new Date();
+    var end=new Date(now); end.setHours(24,0,0,0); end.setDate(end.getDate()+1);
+    var s=Math.max(0,Math.floor((end-now)/1000));
+    var d=Math.floor(s/86400), h=Math.floor(s%86400/3600), m=Math.floor(s%3600/60), ss=s%60;
+    function p(n){return String(n).padStart(2,'0')}
+    document.getElementById('cd-d').textContent=p(d);
+    document.getElementById('cd-h').textContent=p(h);
+    document.getElementById('cd-m').textContent=p(m);
+    document.getElementById('cd-s').textContent=p(ss);
+  }
+  tick(); setInterval(tick,1000);
+})();
+// VSL: começa sozinho mudo (unico autoplay que celular permite); toque = volta ao inicio com som.
+// Depois, toque no video pausa/retoma. Barra de progresso dourada embaixo.
+(function(){
+  var v=document.getElementById('vslv'), tap=document.getElementById('vsltap'),
+      bar=document.getElementById('vslbar'), pz=document.getElementById('vslpause');
+  if(!v||!tap) return;
+  v.muted=true; v.defaultMuted=true;
+  var tryPlay=function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+  tryPlay(); document.addEventListener('visibilitychange',function(){ if(!document.hidden && v.paused && v.muted) tryPlay(); });
+  tap.addEventListener('click',function(e){
+    e.preventDefault(); tap.classList.add('hide');
+    v.muted=false; v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){ v.muted=true; tryPlay(); });
+  });
+  v.addEventListener('click',function(){
+    if(!tap.classList.contains('hide')) return;   // ainda mudo: o botao cuida
+    if(v.paused){ v.play(); pz.classList.remove('show'); } else { v.pause(); pz.classList.add('show'); }
+  });
+  v.addEventListener('timeupdate',function(){ if(v.duration) bar.style.width=(v.currentTime/v.duration*100)+'%'; });
+  v.addEventListener('ended',function(){ pz.classList.remove('show'); tap.classList.remove('hide'); v.muted=true; v.currentTime=0; tryPlay(); });
+})();
+// tabs
+(function(){
+  var tabs=document.querySelectorAll('.tab'), panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('active')});
+    panels.forEach(function(x){x.classList.remove('active')});
+    t.classList.add('active'); panels[+t.dataset.p].classList.add('active');
+  })});
+})();
+</script>
+</body>
+</html>
